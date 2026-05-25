@@ -29,8 +29,13 @@
 
     <!-- ===== 首页 ===== -->
     <div id="page-home" class="page">
-      <div class="status-bar"></div>
-      <div class="content-area scroll-area" id="home-scroll">
+      <div class="global-top-nav">
+        <div class="gtn-logo" onclick="navigate('page-home')">🔗 合力生态</div>
+        <div class="gtn-right">
+          <div class="gtn-item" onclick="navigate('page-brain')">🤖 AI</div>
+        </div>
+      </div>
+      <div class="content-area scroll-area" id="home-scroll" style="top:44px">
         <!-- Hero Banner -->
         <div class="home-hero v2">
           <div class="hero-badge">🔥 AGI元年 · 注意力重新定价</div>
@@ -99,20 +104,30 @@
             <div class="qi-label">Pioneer OS</div>
             <div class="qi-sub">垂直叙事</div>
           </div>
-          <div class="quick-item v2" onclick="navigate('page-mall')">
-            <div class="qi-icon">🛒</div>
-            <div class="qi-label">积分商城</div>
-            <div class="qi-sub">权益兑换</div>
+          <div class="quick-item v2" onclick="navigate('page-join-opportunity')">
+            <div class="qi-icon">🤝</div>
+            <div class="qi-label">开放加入</div>
+            <div class="qi-sub">合作邀约</div>
           </div>
           <div class="quick-item v2" onclick="navigate('page-mp-explain')">
             <div class="qi-icon">💎</div>
             <div class="qi-label">MP积分</div>
             <div class="qi-sub">意义贡献</div>
           </div>
+          <div class="quick-item v2" onclick="navigate('page-dao-hub')">
+            <div class="qi-icon">🏛</div>
+            <div class="qi-label">共建模型</div>
+            <div class="qi-sub">社区治理</div>
+          </div>
           <div class="quick-item v2" onclick="navigate('page-compliance-hub')">
             <div class="qi-icon">⚖️</div>
             <div class="qi-label">合规中心</div>
             <div class="qi-sub">法律保障</div>
+          </div>
+          <div class="quick-item v2" onclick="navigate('page-collab-show')">
+            <div class="qi-icon">🎥</div>
+            <div class="qi-label">综艺合作</div>
+            <div class="qi-sub">企业邀约</div>
           </div>
         </div>
 
@@ -205,23 +220,6 @@
       </div>
 
       <!-- TabBar -->
-      <div class="tab-bar">
-        <div class="tab-item active" id="tab-home" onclick="navigate('page-home')">
-          <div class="tab-icon">🏠</div><div class="tab-label">首页</div>
-        </div>
-        <div class="tab-item" id="tab-show" onclick="navigate('page-show-list')">
-          <div class="tab-icon">🎬</div><div class="tab-label">综艺</div>
-        </div>
-        <div class="tab-item" id="tab-community" onclick="navigate('page-community')">
-          <div class="tab-icon">📖</div><div class="tab-label">社区</div>
-        </div>
-        <div class="tab-item" id="tab-rank" onclick="navigate('page-rank')">
-          <div class="tab-icon">📊</div><div class="tab-label">指数</div>
-        </div>
-        <div class="tab-item" id="tab-mine" onclick="navigate('page-mine')">
-          <div class="tab-icon">👤</div><div class="tab-label">我的</div>
-        </div>
-      </div>
     </div>
 
     <!-- ===== 飞轮详情页 ===== -->
@@ -241,8 +239,13 @@
 
     <!-- ===== 综艺列表 ===== -->
     <div id="page-show-list" class="page">
-      <div class="status-bar"></div>
-      <div class="nav-bar-tabs">
+      <div class="global-top-nav">
+        <div class="gtn-logo" onclick="navigate('page-home')">🔗 合力生态</div>
+        <div class="gtn-right">
+          <div class="gtn-item" onclick="navigate('page-brain')">🤖 AI</div>
+        </div>
+      </div>
+      <div class="nav-bar-tabs" style="top:44px">
         <div class="nbt-title">综艺内容</div>
         <div class="nbt-tabs">
           <span class="nbt-tab active" onclick="filterShows('all',this)">全部</span>
@@ -250,19 +253,19 @@
           <span class="nbt-tab" onclick="filterShows('doc',this)">纪录片</span>
         </div>
       </div>
-      <div class="content-area scroll-area" style="top:110px">
+      <div class="content-area scroll-area" style="top:154px">
         <div id="show-list-content"></div>
         <div style="height:80px"></div>
       </div>
       <div class="tab-bar">
-        <div class="tab-item" id="tab-home2" onclick="navigate('page-home')">
-          <div class="tab-icon">🏠</div><div class="tab-label">首页</div>
-        </div>
         <div class="tab-item active" id="tab-show2" onclick="navigate('page-show-list')">
           <div class="tab-icon">🎬</div><div class="tab-label">综艺</div>
         </div>
         <div class="tab-item" id="tab-com2" onclick="navigate('page-community')">
           <div class="tab-icon">📖</div><div class="tab-label">社区</div>
+        </div>
+        <div class="tab-item" id="tab-mall2" onclick="navigate('page-mall')">
+          <div class="tab-icon">🛒</div><div class="tab-label">商城</div>
         </div>
         <div class="tab-item" id="tab-rank2" onclick="navigate('page-rank')">
           <div class="tab-icon">📊</div><div class="tab-label">指数</div>
@@ -353,8 +356,13 @@
 
     <!-- ===== 合力产业热度指数 ===== -->
     <div id="page-rank" class="page">
-      <div class="status-bar"></div>
-      <div class="nav-bar-tabs">
+      <div class="global-top-nav">
+        <div class="gtn-logo" onclick="navigate('page-home')">🔗 合力生态</div>
+        <div class="gtn-right">
+          <div class="gtn-item" onclick="navigate('page-brain')">🤖 AI</div>
+        </div>
+      </div>
+      <div class="nav-bar-tabs" style="top:44px">
         <div class="nbt-title">📊 产业热度指数</div>
         <div class="nbt-tabs" id="rank-sector-tabs">
           <span class="nbt-tab active" onclick="filterRank('all',this)">全市场</span>
@@ -364,7 +372,7 @@
           <span class="nbt-tab" onclick="filterRank('mfg',this)">智造</span>
         </div>
       </div>
-      <div class="content-area scroll-area" style="top:110px">
+      <div class="content-area scroll-area" style="top:154px">
         <div class="index-compliance-label">
           <span class="compliance-tag"></span>
           <span>仅反映公众产业关注度，不构成投资建议</span>
@@ -374,9 +382,9 @@
         <div style="height:80px"></div>
       </div>
       <div class="tab-bar">
-        <div class="tab-item" onclick="navigate('page-home')"><div class="tab-icon">🏠</div><div class="tab-label">首页</div></div>
         <div class="tab-item" onclick="navigate('page-show-list')"><div class="tab-icon">🎬</div><div class="tab-label">综艺</div></div>
         <div class="tab-item" onclick="navigate('page-community')"><div class="tab-icon">📖</div><div class="tab-label">社区</div></div>
+        <div class="tab-item" onclick="navigate('page-mall')"><div class="tab-icon">🛒</div><div class="tab-label">商城</div></div>
         <div class="tab-item active"><div class="tab-icon">📊</div><div class="tab-label">指数</div></div>
         <div class="tab-item" onclick="navigate('page-mine')"><div class="tab-icon">👤</div><div class="tab-label">我的</div></div>
       </div>
@@ -437,7 +445,13 @@
 
     <!-- ===== 商城 ===== -->
     <div id="page-mall" class="page">
-      <div class="nav-bar-tabs">
+      <div class="global-top-nav">
+        <div class="gtn-logo" onclick="navigate('page-home')">🔗 合力生态</div>
+        <div class="gtn-right">
+          <div class="gtn-item" onclick="navigate('page-brain')">🤖 AI</div>
+        </div>
+      </div>
+      <div class="nav-bar-tabs" style="top:44px">
         <div class="nbt-title">积分商城</div>
         <div class="nbt-tabs">
           <span class="nbt-tab active" onclick="filterMall('all',this)">全部</span>
@@ -446,9 +460,20 @@
           <span class="nbt-tab" onclick="filterMall('digital',this)">数字权益</span>
         </div>
       </div>
-      <div class="content-area scroll-area" style="top:110px">
+      <div class="compliance-banner" style="margin:0;background:rgba(241,143,1,0.06);border-color:rgba(241,143,1,0.15);">
+        <strong>积分声明</strong>：HP积分为纯消费型权益，不可提现、不可交易、不可转让，仅限平台内兑换商品和服务。
+      </div>
+      <div class="content-area scroll-area" style="top:194px">
         <div id="mall-content"></div>
-        <div style="height:40px"></div>
+        <div style="height:80px"></div>
+      </div>
+      <div class="tab-bar">
+        <div class="tab-item" onclick="navigate('page-show-list')"><div class="tab-icon">🎬</div><div class="tab-label">综艺</div></div>
+        <div class="tab-item" onclick="navigate('page-community')"><div class="tab-icon">📖</div><div class="tab-label">社区</div></div>
+        <div class="tab-item active"><div class="tab-icon">🛒</div><div class="tab-label">商城</div></div>
+        <div class="tab-item" onclick="navigate('page-rank')"><div class="tab-icon">📊</div><div class="tab-label">指数</div></div>
+        <div class="tab-item" onclick="navigate('page-mine')"><div class="tab-icon">👤</div><div class="tab-label">我的</div></div>
+      </div>
       </div>
     </div>
 
@@ -519,8 +544,13 @@
 
     <!-- ===== 合力智脑 C端 ===== -->
     <div id="page-brain" class="page">
-      <div class="status-bar"></div>
-      <div class="nav-bar-tabs">
+      <div class="global-top-nav">
+        <div class="gtn-logo" onclick="navigate('page-home')">🔗 合力生态</div>
+        <div class="gtn-right">
+          <div class="gtn-item gtn-active">🤖 AI</div>
+        </div>
+      </div>
+      <div class="nav-bar-tabs" style="top:44px">
         <div class="nbt-title">🧠 合力智脑 · 产业叙事助手</div>
         <div class="nbt-tabs">
           <span class="nbt-tab active" onclick="switchBrain('c',this)">个人版</span>
@@ -530,7 +560,7 @@
       <div class="compliance-banner">
         <strong>合规提示</strong>：合力智脑是产业叙事助手，不是投资助手。禁止询问任何投资建议、股价预测、选股推荐。
       </div>
-      <div class="content-area" style="top:160px; bottom:0; display:flex; flex-direction:column;">
+      <div class="content-area" style="top:200px; bottom:0; display:flex; flex-direction:column;">
         <div id="brain-chat-messages" class="chat-messages"></div>
         <div class="chat-input-area">
           <div class="chat-quick-btns" id="brain-quick-btns"></div>
@@ -539,13 +569,6 @@
             <button class="chat-send" onclick="sendBrainMessage()">发送</button>
           </div>
         </div>
-      </div>
-      <div class="tab-bar">
-        <div class="tab-item" onclick="navigate('page-home')"><div class="tab-icon">🏠</div><div class="tab-label">首页</div></div>
-        <div class="tab-item" onclick="navigate('page-show-list')"><div class="tab-icon">🎬</div><div class="tab-label">综艺</div></div>
-        <div class="tab-item" onclick="navigate('page-community')"><div class="tab-icon">📖</div><div class="tab-label">社区</div></div>
-        <div class="tab-item" onclick="navigate('page-rank')"><div class="tab-icon">📊</div><div class="tab-label">指数</div></div>
-        <div class="tab-item" onclick="navigate('page-mine')"><div class="tab-icon">👤</div><div class="tab-label">我的</div></div>
       </div>
     </div>
 
@@ -597,15 +620,20 @@
 
     <!-- ===== 我的 ===== -->
     <div id="page-mine" class="page">
-      <div class="status-bar"></div>
-      <div class="content-area scroll-area">
+      <div class="global-top-nav">
+        <div class="gtn-logo" onclick="navigate('page-home')">🔗 合力生态</div>
+        <div class="gtn-right">
+          <div class="gtn-item" onclick="navigate('page-brain')">🤖 AI</div>
+        </div>
+      </div>
+      <div class="content-area scroll-area" style="top:44px">
         <div id="mine-content"></div>
         <div style="height:80px"></div>
       </div>
       <div class="tab-bar">
-        <div class="tab-item" onclick="navigate('page-home')"><div class="tab-icon">🏠</div><div class="tab-label">首页</div></div>
         <div class="tab-item" onclick="navigate('page-show-list')"><div class="tab-icon">🎬</div><div class="tab-label">综艺</div></div>
         <div class="tab-item" onclick="navigate('page-community')"><div class="tab-icon">📖</div><div class="tab-label">社区</div></div>
+        <div class="tab-item" onclick="navigate('page-mall')"><div class="tab-icon">🛒</div><div class="tab-label">商城</div></div>
         <div class="tab-item" onclick="navigate('page-rank')"><div class="tab-icon">📊</div><div class="tab-label">指数</div></div>
         <div class="tab-item active"><div class="tab-icon">👤</div><div class="tab-label">我的</div></div>
       </div>
@@ -624,7 +652,12 @@
 
     <!-- ===== 产业社区 ===== -->
     <div id="page-community" class="page">
-      <div class="status-bar"></div>
+      <div class="global-top-nav">
+        <div class="gtn-logo" onclick="navigate('page-home')">🔗 合力生态</div>
+        <div class="gtn-right">
+          <div class="gtn-item" onclick="navigate('page-brain')">🤖 AI</div>
+        </div>
+      </div>
       <div class="community-header">
         <h2>📖 产业社区</h2>
         <p>连接产学研学者、普通公众与上市公司，理性讨论产业话题</p>
@@ -637,15 +670,15 @@
         <span class="community-tab" onclick="filterCommunity('治理讨论',this)">治理讨论</span>
         <span class="community-tab" onclick="filterCommunity('行业动态',this)">行业动态</span>
       </div>
-      <div class="content-area scroll-area" style="top:130px">
+      <div class="content-area scroll-area" style="top:150px">
         <div id="community-content"></div>
         <div style="height:80px"></div>
       </div>
       <div class="community-fab" onclick="openPublishModal()">✏️</div>
       <div class="tab-bar">
-        <div class="tab-item" onclick="navigate('page-home')"><div class="tab-icon">🏠</div><div class="tab-label">首页</div></div>
         <div class="tab-item" onclick="navigate('page-show-list')"><div class="tab-icon">🎬</div><div class="tab-label">综艺</div></div>
         <div class="tab-item active"><div class="tab-icon">📖</div><div class="tab-label">社区</div></div>
+        <div class="tab-item" onclick="navigate('page-mall')"><div class="tab-icon">🛒</div><div class="tab-label">商城</div></div>
         <div class="tab-item" onclick="navigate('page-rank')"><div class="tab-icon">📊</div><div class="tab-label">指数</div></div>
         <div class="tab-item" onclick="navigate('page-mine')"><div class="tab-icon">👤</div><div class="tab-label">我的</div></div>
       </div>
@@ -690,7 +723,7 @@
         <div class="compliance-page">
           <div class="compliance-page-header">
             <h2>⚖️ 合规中心</h2>
-            <p class="version">合力生态 v2.1 · 证券合规保障体系</p>
+            <p class="version">合力生态 v3.0 · 证券合规保障体系</p>
           </div>
 
           <!-- 核心红线 -->
@@ -709,6 +742,8 @@
             <div class="compliance-toc-item" onclick="navigate('page-compliance-agreement')">📄 用户服务协议 v2.1</div>
             <div class="compliance-toc-item" onclick="navigate('page-compliance-privacy')">🔒 隐私保护政策 v2.1</div>
             <div class="compliance-toc-item" onclick="navigate('page-compliance-methodology')">📊 指数编制方法白皮书</div>
+            <div class="compliance-toc-item" onclick="navigate('page-compliance-manual')">📖 用户手册 v3.0</div>
+            <div class="compliance-toc-item" onclick="navigate('page-points-rules')">💎 积分规则详细说明</div>
           </div>
 
           <!-- 合规保障体系 -->
@@ -789,6 +824,72 @@
       </div>
       <div class="content-area scroll-area">
         <div id="methodology-content"></div>
+        <div style="height:40px"></div>
+      </div>
+    </div>
+
+    <!-- ===== 用户手册 ===== -->
+    <div id="page-compliance-manual" class="page">
+      <div class="nav-bar">
+        <div class="nav-back" onclick="goBack()">← 用户手册</div>
+      </div>
+      <div class="content-area scroll-area">
+        <div id="manual-content"></div>
+        <div style="height:40px"></div>
+      </div>
+    </div>
+
+    <!-- ===== 积分规则 ===== -->
+    <div id="page-points-rules" class="page">
+      <div class="nav-bar">
+        <div class="nav-back" onclick="goBack()">← 积分规则</div>
+      </div>
+      <div class="content-area scroll-area">
+        <div id="points-rules-content"></div>
+        <div style="height:40px"></div>
+      </div>
+    </div>
+
+    <!-- ===== 开放加入机会 ===== -->
+    <div id="page-join-opportunity" class="page">
+      <div class="nav-bar">
+        <div class="nav-back" onclick="goBack()">← 开放加入</div>
+      </div>
+      <div class="content-area scroll-area">
+        <div id="join-opportunity-content"></div>
+        <div style="height:40px"></div>
+      </div>
+    </div>
+
+    <!-- ===== 算力纪录片政企合作 ===== -->
+    <div id="page-collab-gov" class="page">
+      <div class="nav-bar">
+        <div class="nav-back" onclick="goBack()">← 政企合作</div>
+      </div>
+      <div class="content-area scroll-area">
+        <div id="collab-gov-content"></div>
+        <div style="height:40px"></div>
+      </div>
+    </div>
+
+    <!-- ===== 综艺企业合作邀约 ===== -->
+    <div id="page-collab-show" class="page">
+      <div class="nav-bar">
+        <div class="nav-back" onclick="goBack()">← 综艺合作</div>
+      </div>
+      <div class="content-area scroll-area">
+        <div id="collab-show-content"></div>
+        <div style="height:40px"></div>
+      </div>
+    </div>
+
+    <!-- ===== 社区共建模型 ===== -->
+    <div id="page-dao-hub" class="page">
+      <div class="nav-bar">
+        <div class="nav-back" onclick="goBack()">← 社区共建模型</div>
+      </div>
+      <div class="content-area scroll-area">
+        <div id="dao-hub-content"></div>
         <div style="height:40px"></div>
       </div>
     </div>

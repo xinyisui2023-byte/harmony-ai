@@ -53,6 +53,20 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino 
 @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
 
 .status-bar { height: 44px; background: var(--primary); flex-shrink: 0; }
+
+/* ---- 全局顶部导航 ---- */
+.global-top-nav {
+  height: 44px; background: var(--primary); display: flex; align-items: center;
+  justify-content: space-between; padding: 0 16px;
+  position: absolute; top: 0; left: 0; right: 0; z-index: 30; flex-shrink: 0;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.15);
+}
+.gtn-logo { color: #fff; font-size: 16px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px; }
+.gtn-right { display: flex; align-items: center; gap: 12px; }
+.gtn-item { color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 600; cursor: pointer; padding: 4px 10px; border-radius: 12px; transition: all 0.2s; }
+.gtn-item:active { background: rgba(255,255,255,0.1); }
+.gtn-item.gtn-active { color: var(--accent); background: rgba(241,143,1,0.15); }
+
 .content-area { position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
 .scroll-area { overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; padding: 0 0 20px; }
 .scroll-area::-webkit-scrollbar { display: none; }
@@ -85,6 +99,15 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino 
 .tab-label { font-size: 10px; color: var(--text-muted); font-weight: 500; }
 .tab-item.active .tab-label { color: var(--primary); font-weight: 700; }
 .tab-item.active .tab-icon { transform: scale(1.1); }
+/* 6项TabBar布局 */
+.tab-bar-6 .tab-icon { font-size: 20px; }
+.tab-bar-6 .tab-label { font-size: 9px; }
+.tab-bar-6 .tab-item { padding: 6px 0; gap: 2px; }
+
+/* 7项TabBar布局 */
+.tab-bar-7 .tab-icon { font-size: 18px; }
+.tab-bar-7 .tab-label { font-size: 8px; }
+.tab-bar-7 .tab-item { padding: 5px 0; gap: 1px; }
 
 /* ---- 启动屏 ---- */
 .splash-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #0A1628 0%, #1E3A5F 50%, #0D2240 100%); }
@@ -651,10 +674,10 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino 
 .compliance-tag::before { content: '✓'; }
 
 /* --- 产业社区 --- */
-.community-header { background: linear-gradient(135deg, var(--primary), #0D2B4A); padding: 50px 16px 20px; }
-.community-header h2 { color: #fff; font-size: 20px; font-weight: 700; }
-.community-header p { color: rgba(255,255,255,0.6); font-size: 13px; margin-top: 6px; }
-.community-tabs { display: flex; gap: 0; padding: 0 16px; background: #fff; border-bottom: 1px solid rgba(0,0,0,0.06); overflow-x: auto; }
+.community-header { background: linear-gradient(135deg, var(--primary), #0D2B4A); padding: 12px 16px 16px; position: absolute; top: 44px; left: 0; right: 0; z-index: 10; }
+.community-header h2 { color: #fff; font-size: 18px; font-weight: 700; }
+.community-header p { color: rgba(255,255,255,0.6); font-size: 12px; margin-top: 4px; }
+.community-tabs { display: flex; gap: 0; padding: 0 16px; background: #fff; border-bottom: 1px solid rgba(0,0,0,0.06); overflow-x: auto; position: absolute; top: 110px; left: 0; right: 0; z-index: 10; }
 .community-tabs::-webkit-scrollbar { display: none; }
 .community-tab { padding: 12px 14px; font-size: 13px; color: var(--text-sub); cursor: pointer; white-space: nowrap; border-bottom: 2px solid transparent; transition: all 0.2s; font-weight: 500; }
 .community-tab.active { color: var(--primary); font-weight: 700; border-bottom-color: var(--accent); }
@@ -781,3 +804,136 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino 
 .footer-compliance p { font-size: 11px; color: var(--text-muted); line-height: 1.6; }
 .footer-compliance a { color: var(--primary-light); text-decoration: none; }
 .footer-compliance .icp-link { display: inline-block; margin-top: 4px; }
+
+/* =============================================
+   v3.0 新增样式 — 合作邀约 / 共建模型 / 加入机会
+   ============================================= */
+
+/* --- 全局返回导航栏（子页面注入） --- */
+.global-nav-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px; background: #fff;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  position: sticky; top: 0; z-index: 10;
+}
+.gnb-left { display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--primary); font-size: 14px; font-weight: 600; }
+.gnb-right { display: flex; align-items: center; gap: 12px; }
+.gnb-btn { font-size: 13px; color: var(--primary); cursor: pointer; padding: 4px 10px; background: rgba(30,58,95,0.06); border-radius: 8px; border: none; }
+
+/* --- 合作邀约页 --- */
+.collab-hero {
+  padding: 24px 16px; color: #fff;
+  background: linear-gradient(135deg, #1E3A5F 0%, #0D2240 100%);
+  text-align: center;
+}
+.collab-hero-icon { font-size: 48px; margin-bottom: 8px; }
+.collab-hero-title { font-size: 20px; font-weight: 800; margin-bottom: 4px; }
+.collab-hero-sub { font-size: 12px; color: rgba(255,255,255,0.55); letter-spacing: 1px; }
+.collab-desc { padding: 16px; font-size: 14px; color: var(--text-sub); line-height: 1.7; background: #fff; }
+
+.collab-section { padding: 0 16px; margin-top: 16px; }
+.collab-section-title { font-size: 15px; font-weight: 700; color: var(--text-main); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+
+.collab-target-card {
+  background: #fff; border-radius: var(--radius); padding: 16px; margin-bottom: 12px; box-shadow: var(--shadow);
+}
+.collab-target-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 15px; font-weight: 700; color: var(--text-main); }
+.collab-target-item { font-size: 13px; color: var(--text-sub); padding: 6px 0; border-bottom: 1px solid rgba(0,0,0,0.04); }
+.collab-target-item:last-child { border-bottom: none; }
+
+.collab-form-card {
+  background: #fff; border-radius: var(--radius); padding: 16px; margin-bottom: 12px;
+  border: 1px solid rgba(30,58,95,0.08); cursor: pointer; transition: all 0.2s;
+}
+.collab-form-card:hover { border-color: var(--primary); box-shadow: var(--shadow-md); }
+.collab-form-title { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+.collab-form-desc { font-size: 13px; color: var(--text-sub); line-height: 1.6; }
+.collab-form-benefit { font-size: 12px; color: var(--success); margin-top: 8px; }
+
+.collab-benefit-card {
+  background: #fff; border-radius: var(--radius-sm); padding: 14px; margin-bottom: 8px;
+  border-left: 3px solid var(--accent);
+}
+.collab-benefit-title { font-size: 14px; font-weight: 700; color: var(--text-main); margin-bottom: 4px; }
+.collab-benefit-desc { font-size: 13px; color: var(--text-sub); }
+.collab-benefit-detail { font-size: 12px; color: var(--accent); margin-top: 4px; }
+
+.collab-contact {
+  margin: 20px 16px; padding: 16px; text-align: center;
+  background: rgba(30,58,95,0.04); border-radius: var(--radius);
+  font-size: 14px; color: var(--text-sub); line-height: 1.7;
+}
+.collab-contact strong { color: var(--primary); }
+
+/* --- 开放加入机会 --- */
+.join-hero {
+  padding: 24px 16px; color: #fff; text-align: center;
+  background: linear-gradient(135deg, #0D2240 0%, #1E3A5F 50%, #2A5080 100%);
+}
+.join-hero-title { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+.join-hero-sub { font-size: 13px; color: rgba(255,255,255,0.6); }
+
+.join-card {
+  background: #fff; border-radius: var(--radius); padding: 20px 16px; margin: 12px 16px;
+  box-shadow: var(--shadow); cursor: pointer; transition: all 0.2s;
+  border: 2px solid transparent;
+}
+.join-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.join-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.join-card-icon { font-size: 32px; }
+.join-card-title { font-size: 17px; font-weight: 800; color: var(--text-main); }
+.join-card-subtitle { font-size: 12px; color: var(--primary); font-weight: 600; }
+.join-card-desc { font-size: 13px; color: var(--text-sub); line-height: 1.7; margin-bottom: 12px; }
+.join-card-req-title { font-size: 13px; font-weight: 700; color: var(--text-main); margin-bottom: 6px; }
+.join-card-req-item { font-size: 12px; color: var(--text-sub); padding: 4px 0; padding-left: 16px; position: relative; }
+.join-card-req-item::before { content: '•'; position: absolute; left: 4px; color: var(--accent); font-weight: 700; }
+.join-card-form { margin-top: 12px; padding: 10px 12px; background: rgba(30,58,95,0.04); border-radius: 8px; font-size: 12px; color: var(--primary); }
+
+/* --- 社区共建模型 --- */
+.dao-hero {
+  padding: 24px 16px; color: #fff; text-align: center;
+  background: linear-gradient(135deg, #2A5080 0%, #1E3A5F 100%);
+}
+.dao-hero-icon { font-size: 48px; margin-bottom: 8px; }
+.dao-hero-title { font-size: 20px; font-weight: 800; margin-bottom: 4px; }
+.dao-hero-sub { font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 1px; }
+.dao-hero-desc { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-top: 12px; max-width: 320px; margin-left: auto; margin-right: auto; }
+
+.dao-section { padding: 16px; }
+.dao-section-title { font-size: 15px; font-weight: 700; color: var(--text-main); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+
+.dao-structure-card {
+  background: #fff; border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px;
+  box-shadow: var(--shadow); display: flex; align-items: flex-start; gap: 12px;
+  border-left: 3px solid var(--primary);
+}
+.dao-structure-icon { font-size: 24px; flex-shrink: 0; }
+.dao-structure-info { flex: 1; }
+.dao-structure-title { font-size: 14px; font-weight: 700; color: var(--text-main); margin-bottom: 2px; }
+.dao-structure-desc { font-size: 12px; color: var(--text-sub); line-height: 1.5; }
+.dao-structure-members { font-size: 11px; color: var(--primary); margin-top: 4px; font-weight: 600; }
+
+.dao-milestone {
+  background: #fff; border-radius: var(--radius); padding: 16px; margin-bottom: 12px;
+  box-shadow: var(--shadow);
+}
+.dao-milestone-phase { font-size: 14px; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+.dao-milestone-item { font-size: 13px; color: var(--text-sub); padding: 5px 0; padding-left: 18px; position: relative; }
+.dao-milestone-item::before { content: '✓'; position: absolute; left: 2px; color: var(--success); font-weight: 700; font-size: 12px; }
+
+.dao-rule-card {
+  background: #fff; border-radius: var(--radius-sm); padding: 12px 16px; margin-bottom: 8px;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.dao-rule-text { font-size: 13px; color: var(--text-sub); line-height: 1.6; padding-left: 16px; position: relative; }
+.dao-rule-text::before { content: '§'; position: absolute; left: 0; color: var(--primary); font-weight: 700; font-size: 12px; }
+
+/* --- 合规文档通用 --- */
+.doc-page { padding: 16px; }
+.doc-page-header { text-align: center; padding: 20px 0 16px; }
+.doc-page-header h2 { font-size: 18px; font-weight: 800; color: var(--text-main); margin-bottom: 4px; }
+.doc-page-header .version { font-size: 12px; color: var(--text-muted); }
+
+.doc-section { background: #fff; border-radius: var(--radius); padding: 16px; margin-bottom: 12px; box-shadow: var(--shadow); }
+.doc-section-title { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid rgba(0,0,0,0.06); }
+.doc-section-content { font-size: 13px; color: var(--text-sub); line-height: 1.8; white-space: pre-line; }

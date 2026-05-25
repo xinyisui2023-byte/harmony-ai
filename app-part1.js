@@ -1,6 +1,6 @@
 /* =============================================
    app-part1.js - 页面渲染函数
-   合力生态 HarmonyLink v2.1 合规版
+   合力生态 HarmonyLink v3.0
    ============================================= */
 
 // ========== 全局状态 ==========
@@ -54,14 +54,17 @@ function goBack() {
 function updateAllTabBars(pageId) {
   document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
   const tabMap = {
-    'page-home': ['tab-home', 'tab-home2'],
+    'page-home': [],
     'page-show-list': ['tab-show', 'tab-show2'],
     'page-show-detail': ['tab-show', 'tab-show2'],
     'page-community': ['tab-community', 'tab-com2'],
     'page-topic-detail': ['tab-community', 'tab-com2'],
-    'page-brain': ['tab-community'],
-    'page-agent': ['tab-community'],
-    'page-ai-writer': ['tab-community'],
+    'page-dao-hub': ['tab-community', 'tab-com2'],
+    'page-brain': [],
+    'page-agent': [],
+    'page-ai-writer': [],
+    'page-mall': ['tab-mall', 'tab-mall2'],
+    'page-product': ['tab-mall', 'tab-mall2'],
     'page-rank': ['tab-rank', 'tab-rank2'],
     'page-brand': ['tab-rank', 'tab-rank2'],
     'page-mine': ['tab-mine', 'tab-mine2']
@@ -265,6 +268,19 @@ window.render_page_show_detail = function(data) {
         </div>
       `).join('')}
     </div>
+
+    ${show.id === 'zhizaozhe' ? `
+    <div style="margin:16px;padding:16px;background:linear-gradient(135deg,#1E3A5F,#2A5080);border-radius:var(--radius);color:#fff;cursor:pointer;" onclick="navigate('page-collab-show')">
+      <div style="font-size:15px;font-weight:700;margin-bottom:6px;">🎥 企业合作邀约</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.6;">邀约新质生产力领域上市公司参与《智造者》节目录制及IP深度合作，涵盖品牌曝光、产业叙事、用户连接、热度提升四大权益。</div>
+      <div style="margin-top:10px;text-align:center;font-size:13px;color:var(--accent);">查看详情 →</div>
+    </div>` : ''}
+    ${show.id === 'suanlijijilu' ? `
+    <div style="margin:16px;padding:16px;background:linear-gradient(135deg,#0D2240,#1E3A5F);border-radius:var(--radius);color:#fff;cursor:pointer;" onclick="navigate('page-collab-gov')">
+      <div style="font-size:15px;font-weight:700;margin-bottom:6px;">⚡ 政企合作邀约</div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.6;">邀约各级政府机关、AI/新质生产力相关产业园区联合制作，共同打造具有行业影响力的纪实IP。</div>
+      <div style="margin-top:10px;text-align:center;font-size:13px;color:var(--accent);">查看详情 →</div>
+    </div>` : ''}
   `;
 
   const bottomBar = document.getElementById('show-bottom-bar');
@@ -1057,6 +1073,9 @@ window.render_page_order_confirm = function(data) {
         <div class="oc-row"><span class="oc-label">当前HP</span><span class="oc-value">${formatNumber(user.hp)}</span></div>
         <div class="oc-row"><span class="oc-label">兑换后余额</span><span class="oc-value accent">${formatNumber(user.hp - product.price)}</span></div>
       </div>
+      <div class="compliance-banner" style="margin:12px 0 0;">
+        <strong>积分合规</strong>：HP积分为纯消费型权益，不可提现、不可交易、不可转让。兑换商品由第三方提供，平台仅提供兑换渠道。
+      </div>
     </div>
   `;
 
@@ -1195,14 +1214,14 @@ window.render_page_about = function() {
     <div class="about-hero">
       <div class="about-logo">🔗</div>
       <div class="about-title">合力生态</div>
-      <div class="about-sub">HARMONY LINKAGE<br>注意力经济 × AI Agent 新质生产力平台<br><br>AI时代「人性价值」的挖掘、定价与流通平台</div>
+      <div class="about-sub">HARMONY LINKAGE<br>产业叙事与公众注意力价值平台<br><br>AI时代上市公司产业认知、叙事传播与公众关注度量化平台</div>
     </div>
 
     <div class="card" style="margin-top:16px;">
       <div class="card-title">我们的使命</div>
       <div class="card-sub">
         AGI元年到来，99.9%的认知劳动将由机器完成。合力生态守护AI时代最后的0.1%——<strong>人类的温度、判断与意义</strong>。<br><br>
-        我们相信：注意力是后AI时代最稀缺的资产。合力生态是那个让注意力被定价、让人性被传承的平台。
+        我们相信：公众的产业关注度是最稀缺的资源。合力生态是那个让产业叙事被看见、让公众注意力产生价值的平台。
       </div>
     </div>
 
@@ -1211,17 +1230,17 @@ window.render_page_about = function() {
     <div class="strategy-card">
       <div class="sc-stage validate">验证期 · 2026</div>
       <div class="sc-title">验证全链路闭环</div>
-      <div class="sc-desc">《智造者》第一季播出，验证综艺→积分→指数→Agent全链路闭环。天使轮融资800-1000万，投前估值1.2亿。</div>
+      <div class="sc-desc">《智造者》第一季播出，验证综艺→积分→指数→Agent全链路闭环。开放各类合作邀约，汇聚共建力量。</div>
     </div>
     <div class="strategy-card">
       <div class="sc-stage growth">成长期 · 2027</div>
-      <div class="sc-title">兑换商城规模化</div>
-      <div class="sc-desc">兑换商城规模化运营，GMV快速增长，更多B端企业接入生态。龙虾Agent API接口开放，注意力资产化变现规模扩大。</div>
+      <div class="sc-title">商城与社区规模化</div>
+      <div class="sc-desc">积分商城规模化运营，更多B端企业入驻。社区共建委员会正式运作，社区治理模型成熟。龙虾Agent功能持续完善。</div>
     </div>
     <div class="strategy-card">
       <div class="sc-stage ecosystem">生态期 · 2028</div>
-      <div class="sc-title">DAO共建·指数级裂变</div>
-      <div class="sc-desc">Agent+交易所，DAO组织共建生态指数级裂变。做国际化人性注意力资产平台，让C端注意力全球可定价、可流通。</div>
+      <div class="sc-title">社区共建·指数级成长</div>
+      <div class="sc-desc">社区共建模型全面运行，生态参与者指数级增长。打造国内领先的产业叙事与公众关注度量化平台。</div>
     </div>
 
     <div style="padding:16px 16px 8px;font-size:15px;font-weight:700;color:var(--text-main);">五重壁垒</div>
@@ -1231,7 +1250,7 @@ window.render_page_about = function() {
         ['📜', '数交所备案合规', '合规门槛高，先发合规基础'],
         ['🏢', '企业高管关系网络', '每年数场上市公司颁奖，高管关系过百'],
         ['📊', '数据飞轮沉淀', '多积分兑换体系形成数据飞轮，网络效应强'],
-        ['🌐', '注意力经济先发生态位', '首个将注意力所有权归还个人的新生态']
+        ['🌐', '产业叙事先发生态位', '首个将公众产业关注度量化的新质生产力平台']
       ].map(([icon, title, desc], i) => `
         <div style="display:flex;gap:12px;${i > 0 ? 'margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,0.04);' : ''}">
           <div style="font-size:20px;">${icon}</div>
@@ -1243,14 +1262,15 @@ window.render_page_about = function() {
       `).join('')}
     </div>
 
-    <div class="era-card" style="margin-top:16px;">
-      <div class="era-quote">"让注意力被定价，让人性被传承。合力生态期待与投资机构、B端和C端伙伴共建共享"</div>
+    <div class="era-card" style="margin-top:16px;cursor:pointer;" onclick="navigate('page-join-opportunity')">
+      <div class="era-quote">"让产业叙事被看见，让公众关注有价值。合力生态期待与各方力量共建共享"</div>
       <div class="era-source">— 合力生态 创始人</div>
-      <div style="margin-top:12px;display:flex;gap:12px;">
-        <div style="text-align:center;flex:1;"><div style="font-size:20px;font-weight:800;color:var(--accent);">1.2亿</div><div style="font-size:11px;color:rgba(255,255,255,0.4);">投前估值</div></div>
-        <div style="text-align:center;flex:1;"><div style="font-size:20px;font-weight:800;color:var(--accent);">800万</div><div style="font-size:11px;color:rgba(255,255,255,0.4);">天使轮融资</div></div>
-        <div style="text-align:center;flex:1;"><div style="font-size:20px;font-weight:800;color:var(--accent);">$5000亿</div><div style="font-size:11px;color:rgba(255,255,255,0.4);">AI Agent市场</div></div>
+      <div style="margin-top:12px;display:flex;gap:12px;justify-content:center;">
+        <div style="text-align:center;flex:1;"><div style="font-size:20px;font-weight:800;color:var(--accent);">开放</div><div style="font-size:11px;color:rgba(255,255,255,0.4);">加入机会</div></div>
+        <div style="text-align:center;flex:1;"><div style="font-size:20px;font-weight:800;color:var(--accent);">4种</div><div style="font-size:11px;color:rgba(255,255,255,0.4);">合作形态</div></div>
+        <div style="text-align:center;flex:1;"><div style="font-size:20px;font-weight:800;color:var(--accent);">共建</div><div style="font-size:11px;color:rgba(255,255,255,0.4);">共享未来</div></div>
       </div>
+      <div style="margin-top:10px;text-align:center;font-size:13px;color:var(--accent);">点击查看 → 成为股东 / 平台共建者 / 赛道参与者 / 第三方合作</div>
     </div>
     <div style="height:20px;"></div>
   `;
@@ -1585,3 +1605,213 @@ function toggleTopicLike(el) {
     el.querySelector('span:last-child').textContent = '点赞';
   }
 }
+
+// ========== v3.0 新增渲染函数 ==========
+
+// --- 开放加入机会 ---
+window.render_page_join_opportunity = function() {
+  const el = document.getElementById('join-opportunity-content');
+  if (!el) return;
+  const items = Store.get('joinOpportunity') || MOCK_DATA.joinOpportunity;
+  el.innerHTML = `
+    <div class="join-hero">
+      <div class="join-hero-title">🤝 开放加入合力生态</div>
+      <div class="join-hero-sub">成为共建者，共享产业叙事新时代</div>
+    </div>
+    ${items.map(item => `
+      <div class="join-card" onclick="showToast('${item.form}')">
+        <div class="join-card-header">
+          <div class="join-card-icon">${item.icon}</div>
+          <div>
+            <div class="join-card-title">${item.title}</div>
+            <div class="join-card-subtitle">${item.subtitle}</div>
+          </div>
+        </div>
+        <div class="join-card-desc">${item.desc}</div>
+        <div class="join-card-req-title">加入条件</div>
+        ${item.requirements.map(r => `<div class="join-card-req-item">${r}</div>`).join('')}
+        <div class="join-card-form">📧 ${item.form}</div>
+      </div>
+    `).join('')}
+    <div class="collab-contact">
+      欢迎各界力量加入合力生态共建<br>
+      官方邮箱：<strong>contact@heli-ai.com</strong>
+    </div>
+  `;
+};
+
+// --- 算力纪录片政企合作邀约 ---
+window.render_page_collab_gov = function() {
+  const el = document.getElementById('collab-gov-content');
+  if (!el) return;
+  const d = MOCK_DATA.collaboration.govDoc;
+  el.innerHTML = `
+    <div class="collab-hero">
+      <div class="collab-hero-icon">${d.hero}</div>
+      <div class="collab-hero-title">${d.title}</div>
+      <div class="collab-hero-sub">${d.subtitle}</div>
+    </div>
+    <div class="collab-desc">${d.desc}</div>
+
+    ${d.targets.map(t => `
+      <div class="collab-section">
+        <div class="collab-section-title">${t.icon} ${t.type}</div>
+        <div class="collab-target-card">
+          ${t.items.map(item => `<div class="collab-target-item">• ${item}</div>`).join('')}
+        </div>
+      </div>
+    `).join('')}
+
+    <div class="collab-section">
+      <div class="collab-section-title">📋 合作形式</div>
+      ${d.cooperationForms.map(f => `
+        <div class="collab-form-card" onclick="showToast('合作意向已提交，3个工作日内回复')">
+          <div class="collab-form-title">${f.title}</div>
+          <div class="collab-form-desc">${f.desc}</div>
+          <div class="collab-form-benefit">✅ ${f.benefit}</div>
+        </div>
+      `).join('')}
+    </div>
+
+    <div class="collab-contact">
+      ${d.contact}<br>
+      <strong>合作咨询：contact@heli-ai.com</strong>
+    </div>
+  `;
+};
+
+// --- 综艺企业合作邀约 ---
+window.render_page_collab_show = function() {
+  const el = document.getElementById('collab-show-content');
+  if (!el) return;
+  const d = MOCK_DATA.collaboration.showCoop;
+  el.innerHTML = `
+    <div class="collab-hero">
+      <div class="collab-hero-icon">${d.hero}</div>
+      <div class="collab-hero-title">${d.title}</div>
+      <div class="collab-hero-sub">${d.subtitle}</div>
+    </div>
+    <div class="collab-desc">${d.desc}</div>
+
+    ${d.targets.map(t => `
+      <div class="collab-section">
+        <div class="collab-section-title">${t.icon} ${t.type}</div>
+        <div class="collab-target-card">
+          ${t.items.map(item => `<div class="collab-target-item">• ${item}</div>`).join('')}
+        </div>
+      </div>
+    `).join('')}
+
+    <div class="collab-section">
+      <div class="collab-section-title">🌟 合作权益</div>
+      ${d.benefits.map(b => `
+        <div class="collab-benefit-card">
+          <div class="collab-benefit-title">${b.title}</div>
+          <div class="collab-benefit-desc">${b.desc}</div>
+          <div class="collab-benefit-detail">${b.detail}</div>
+        </div>
+      `).join('')}
+    </div>
+
+    <div class="collab-contact">
+      ${d.contact}<br>
+      <strong>节目合作：show@heli-ai.com</strong>
+    </div>
+  `;
+};
+
+// --- 社区共建模型 ---
+window.render_page_dao_hub = function() {
+  const el = document.getElementById('dao-hub-content');
+  if (!el) return;
+  const d = MOCK_DATA.communityGovernance;
+  el.innerHTML = `
+    <div class="dao-hero">
+      <div class="dao-hero-icon">🏛</div>
+      <div class="dao-hero-title">${d.name}</div>
+      <div class="dao-hero-sub">${d.subtitle}</div>
+      <div class="dao-hero-desc">${d.desc}</div>
+    </div>
+
+    <div class="dao-section">
+      <div class="dao-section-title">🏗 治理架构</div>
+      ${d.structure.map(s => `
+        <div class="dao-structure-card">
+          <div class="dao-structure-icon">${s.icon}</div>
+          <div class="dao-structure-info">
+            <div class="dao-structure-title">${s.title}</div>
+            <div class="dao-structure-desc">${s.desc}</div>
+            <div class="dao-structure-members">👥 ${s.members} 人</div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+
+    <div class="dao-section">
+      <div class="dao-section-title">📅 发展里程碑</div>
+      ${d.milestones.map(m => `
+        <div class="dao-milestone">
+          <div class="dao-milestone-phase">${m.phase}</div>
+          ${m.items.map(item => `<div class="dao-milestone-item">${item}</div>`).join('')}
+        </div>
+      `).join('')}
+    </div>
+
+    <div class="dao-section">
+      <div class="dao-section-title">📜 治理规则</div>
+      ${d.governanceRules.map(rule => `
+        <div class="dao-rule-card"><div class="dao-rule-text">${rule}</div></div>
+      `).join('')}
+    </div>
+
+    <div class="collab-contact">
+      欢迎贡献社区力量，参与共建治理<br>
+      <strong>共建咨询：governance@heli-ai.com</strong>
+    </div>
+  `;
+};
+
+// --- 用户手册 ---
+window.render_page_compliance_manual = function() {
+  const el = document.getElementById('manual-content');
+  if (!el) return;
+  const doc = MOCK_DATA.compliance.userManual;
+  el.innerHTML = `
+    <div class="doc-page">
+      <div class="doc-page-header">
+        <h2>📖 ${doc.title}</h2>
+        <div class="version">${doc.version}</div>
+      </div>
+      ${doc.sections.map(s => `
+        <div class="doc-section">
+          <div class="doc-section-title">${s.title}</div>
+          <div class="doc-section-content">${s.content}</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+};
+
+// --- 积分规则 ---
+window.render_page_points_rules = function() {
+  const el = document.getElementById('points-rules-content');
+  if (!el) return;
+  const doc = MOCK_DATA.compliance.pointsRules;
+  el.innerHTML = `
+    <div class="doc-page">
+      <div class="doc-page-header">
+        <h2>💎 ${doc.title}</h2>
+        <div class="version">${doc.version}</div>
+      </div>
+      <div class="compliance-banner" style="margin-bottom:16px;">
+        <strong>合规声明</strong>：平台积分为纯消费型权益，不可提现、不可交易、不可转让，不代表任何金融资产或证券权益。
+      </div>
+      ${doc.sections.map(s => `
+        <div class="doc-section">
+          <div class="doc-section-title">${s.title}</div>
+          <div class="doc-section-content">${s.content}</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+};
