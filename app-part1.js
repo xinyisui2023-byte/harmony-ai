@@ -54,7 +54,7 @@ function goBack() {
 function updateAllTabBars(pageId) {
   document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
   const tabMap = {
-    'page-home': [],
+    'page-home': ['tab-home'],
     'page-show-list': ['tab-show', 'tab-show2'],
     'page-show-detail': ['tab-show', 'tab-show2'],
     'page-community': ['tab-community', 'tab-com2'],
