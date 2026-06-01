@@ -619,7 +619,22 @@ const API = {
   },
 
   async brainChat(mode, message) {
-    await sleep(800 + Math.random() * 600);
+    // 优先调用 AI 引擎，失败自动降级到模拟回复
+    try {
+      const msgs = Store.get('brainMessages');
+      const history = msgs[mode] || [];
+      const result = await AI_ENGINE.chat(mode, message, history);
+      if (result && result.reply) {
+        return { success: true, reply: result.reply };
+      }
+    } catch(e) {
+      console.warn('[brainChat] AI引擎调用失败，降级模拟回复:', e.message);
+    }
+    // 降级：原模拟回复逻辑
+    return this._brainChatSimulate(mode, message);
+  },
+
+  async   async _brainChatSimulate(mode, message) {
     const responses = {
       c: {
         '积分': '你目前有 HP:12800、WATCH:5600、EXP:3200、GOV:800、DATA:1200、MP:2400。\n\n积分获取建议：\n1. 观看《智造者》综艺，获取WATCH积分\n2. 发表产业分析评论，获取EXP积分\n3. 参与社区治理投票，获取GOV积分\n\n⚠️ 提醒：积分为纯消费型权益，不可提现、不可交易',
@@ -633,7 +648,6 @@ const API = {
       }
     };
 
-    const msgs = Store.get('brainMessages');
     const modeKey = mode || 'c';
     const lower = message.toLowerCase();
     let reply = '';
