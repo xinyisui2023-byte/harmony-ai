@@ -478,6 +478,7 @@
           <span class="nbt-tab" onclick="filterMall('service',this)">服务券</span>
           <span class="nbt-tab" onclick="filterMall('show',this)">演出票</span>
           <span class="nbt-tab" onclick="filterMall('digital',this)">数字权益</span>
+          <span class="nbt-tab" onclick="filterMall('ai-pay',this)" style="color:var(--accent);">🤖 AI支付</span>
         </div>
       </div>
       <div class="compliance-banner" style="margin:0;background:rgba(241,143,1,0.06);border-color:rgba(241,143,1,0.15);">
@@ -937,6 +938,52 @@
 
     <!-- ===== Toast消息 ===== -->
     <div id="toast" class="toast"></div>
+    <!-- ===== AI支付交易记录 ===== -->
+    <div id="page-ai-pay-records" class="page">
+      <div class="nav-bar">
+        <div class="nav-back" onclick="goBack()">← AI支付记录</div>
+      </div>
+      <div class="content-area scroll-area">
+        <div id="ai-pay-records-content"></div>
+        <div style="height:40px"></div>
+      </div>
+    </div>
+
+    <!-- ===== AI支付专区 ===== -->
+    <div id="page-ai-pay-mall" class="page">
+      <div class="global-top-nav">
+        <div class="gtn-logo" onclick="navigate('page-home')">🔗 合力生态</div>
+        <div class="gtn-right">
+          <div class="gtn-item" onclick="navigate('page-brain')">🤖 AI</div>
+        </div>
+      </div>
+      <div class="content-area scroll-area" style="top:44px;">
+        <div id="ai-pay-mall-content"></div>
+      </div>
+    </div>
+
+    <!-- ===== AI支付402协议说明 ===== -->
+    <div id="page-ai-pay-402" class="page">
+      <div class="nav-bar">
+        <div class="nav-back" onclick="goBack()">← AI支付 · 402协议</div>
+      </div>
+      <div class="content-area scroll-area">
+        <div id="ai-pay-402-content"></div>
+        <div style="height:40px"></div>
+      </div>
+    </div>
+
+    <!-- ===== AI模型设置 ===== -->
+    <div id="page-ai-settings" class="page">
+      <div class="nav-bar">
+        <div class="nav-back" onclick="goBack()">← AI 模型设置</div>
+      </div>
+      <div class="content-area scroll-area">
+        <div id="ai-settings-content"></div>
+        <div style="height:40px"></div>
+      </div>
+    </div>
+
     <!-- ===== 遮罩层 ===== -->
     <div id="overlay" class="overlay" onclick="closeOverlay()"></div>
     <!-- ===== 弹窗 ===== -->
@@ -951,5 +998,7 @@
   <script src="app-part2.js"></script>
   <script src="app-part3.js"></script>
   <script src="app-pioneer.js"></script>
+  <script src="app-ai-engine.js"></script>
+  <script src="app-payment.js"></script>
 </body>
 </html>

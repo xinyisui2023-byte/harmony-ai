@@ -73,7 +73,8 @@ function updateAllTabBars(pageId) {
   const noTabPages = [
     'page-ai-pay-402',
     'page-ai-pay-mall',
-    'page-ai-pay-records'
+    'page-ai-pay-records',
+    'page-ai-settings'
   ];
   if (noTabPages.indexOf(pageId) !== -1) {
     document.querySelectorAll('.tab-bar').forEach(tb => tb.style.display = 'none');
