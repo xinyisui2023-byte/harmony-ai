@@ -751,6 +751,11 @@ window.render_page_mine = function() {
         <div class="mmi-label">我的龙虾Agent</div>
         <div class="mmi-arrow">›</div>
       </div>
+      <div class="mine-menu-item" onclick="navigate('page-ai-settings')">
+        <div class="mmi-icon">🤖</div>
+        <div class="mmi-label">AI 模型设置</div>
+        <div class="mmi-arrow">›</div>
+      </div>
       <div class="mine-menu-item" onclick="navigate('page-about')">
         <div class="mmi-icon">ℹ️</div>
         <div class="mmi-label">关于合力生态</div>
